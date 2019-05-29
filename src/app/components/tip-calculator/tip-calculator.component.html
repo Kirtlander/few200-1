@@ -1,0 +1,23 @@
+<p>
+  The user can select 10%, 15%, or 20%
+</p>
+<p>
+  They enter the amount. It shows the tip to add and the total amount to be paid.
+</p>
+
+Enter check amount: <input type="number"
+       (change)="updateCheckAmt($event)"
+       #amt>
+
+<input type="button"
+       value="10%"
+       (click)="setTip(10)">
+<input type="button"
+       value="15%"
+       (click)="setTip(15)">
+<input type="button"
+       value="20%"
+       (click)="setTip(20)">
+<p *ngIf="checkTotal">
+  The tip amount is: {{checkTotal | currency}}
+</p>
