@@ -1,26 +1,48 @@
-import { TodoListItem } from './models';
+import { TodoListItem, TodoSummary } from './models';
+import { Observable, BehaviorSubject } from 'rxjs';
+import { map } from 'rxjs/operators';
 
 export class TodoDataService {
 
-  private items: TodoListItem[] = [
+  private data: TodoListItem[] = [
     { description: 'Fix Front Door', completed: false },
     { description: 'Change bathroom lightbulbs', completed: false },
     { description: 'Kill Thistles', completed: true }
   ];
 
-  get todoList(): TodoListItem[] {
-    return this.items;
+  private todoListSubject = new BehaviorSubject<TodoListItem[]>(this.data);
+
+  get todoList(): Observable<TodoListItem[]> {
+    return this.todoListSubject.asObservable();
   }
 
   add(what: string) {
-    this.items.unshift(
-      {
-        description: what,
-        completed: false
-      });
+    const item = { description: what, completed: false };
+    this.data = [item, ...this.data];
+    this.todoListSubject.next(this.data);
   }
 
   clearCompleted() {
-    this.items = this.items.filter(i => !i.completed);
+    this.data = this.data.filter(i => !i.completed);
+    this.todoListSubject.next(this.data);
+  }
+
+  markComplete(item: TodoListItem) {
+    const newItem = { description: item.description, completed: true };
+    this.data = this.data.map(i => i === item ? newItem : item);
+    this.todoListSubject.next(this.data);
+  }
+
+  getSummary(): Observable<TodoSummary> {
+    return this.todoListSubject.pipe(
+      map(list => {
+        return {
+          total: list.length,
+          completed: list.filter(i => i.completed).length,
+          incomplete: list.filter(i => !i.completed).length
+
+        };
+      })
+    );
   }
 }

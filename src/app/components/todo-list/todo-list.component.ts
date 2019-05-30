@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
 import { TodoListItem } from './models';
 import { TodoDataService } from './todo-data.service';
 
@@ -9,7 +10,7 @@ import { TodoDataService } from './todo-data.service';
 })
 export class TodoListComponent implements OnInit {
 
-  get items() {
+  get items$(): Observable<TodoListItem[]> {
     return this.service.todoList;
   }
 
@@ -19,7 +20,7 @@ export class TodoListComponent implements OnInit {
   }
 
   markComplete(item: TodoListItem) {
-    item.completed = true;
+    this.service.markComplete(item);
   }
 
   add(what: string) {

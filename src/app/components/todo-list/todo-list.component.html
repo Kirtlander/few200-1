@@ -1,5 +1,5 @@
 <app-entry (itemAdded)="add($event)"></app-entry>
 <section>
-  <app-list [list]="items"
+  <app-list [list]="items$ | async"
             (clear)="clearCompleted()"></app-list>
 </section>
