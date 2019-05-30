@@ -23,6 +23,9 @@ export class EntryComponent implements OnInit {
   }
 
   add(item: HTMLInputElement): void {
+    if (!item.value) {
+      return;
+    }
     this.itemAdded.emit(item.value);
     item.value = '';
     item.focus();

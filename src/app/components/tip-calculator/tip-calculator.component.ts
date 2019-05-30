@@ -8,7 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class TipCalculatorComponent implements OnInit {
 
   checkAmt = 0;
-  tipPercent = 0;
+  tipPercent = 20;
 
   get checkTotal() {
     return this.checkAmt + this.checkAmt * this.tipPercent / 100;
