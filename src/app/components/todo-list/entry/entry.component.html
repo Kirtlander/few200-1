@@ -2,7 +2,7 @@
   <label for="item">Item</label>
   <input class="form-control"
          #description
-         (keypress)="addDescription($event)"
+         (keyup)="addDescription($event)"
          name="item">
   <input type="button"
          (click)="add(description)"
