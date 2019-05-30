@@ -7,6 +7,8 @@ import { TodoListComponent } from './components/todo-list/todo-list.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
 import { TipCalculatorComponent } from './components/tip-calculator/tip-calculator.component';
 import { NavComponent } from './components/nav/nav.component';
+import { ListComponent } from './components/todo-list/list/list.component';
+import { EntryComponent } from './components/todo-list/entry/entry.component';
 
 @NgModule({
   declarations: [
@@ -14,7 +16,9 @@ import { NavComponent } from './components/nav/nav.component';
     TodoListComponent,
     DashboardComponent,
     TipCalculatorComponent,
-    NavComponent
+    NavComponent,
+    ListComponent,
+    EntryComponent
   ],
   imports: [
     BrowserModule,

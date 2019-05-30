@@ -17,12 +17,16 @@ export class TodoListComponent {
     item.completed = true;
   }
 
-  add(what: HTMLInputElement) {
+  add(what: string) {
     this.items.unshift(
       {
-        description: what.value,
+        description: what,
         completed: false
       });
+  }
+
+  clearCompleted() {
+    this.items = this.items.filter(i => !i.completed);
   }
 }
 
