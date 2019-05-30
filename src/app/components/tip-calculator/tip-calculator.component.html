@@ -6,17 +6,19 @@
 </p>
 
 Enter check amount: <input type="number"
-       (change)="updateCheckAmt($event)"
-       #amt>
+       (change)="updateCheckAmt($event)">
 
 <input type="button"
        value="10%"
+       [class.active]="tipPercent === 10"
        (click)="setTip(10)">
 <input type="button"
        value="15%"
+       [class.active]="tipPercent === 15"
        (click)="setTip(15)">
 <input type="button"
        value="20%"
+       [class.active]="tipPercent === 20"
        (click)="setTip(20)">
 <p *ngIf="checkTotal">
   The tip amount is: {{checkTotal | currency}}

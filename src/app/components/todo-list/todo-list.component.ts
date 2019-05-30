@@ -18,7 +18,6 @@ export class TodoListComponent {
   }
 
   add(what: HTMLInputElement) {
-    console.log(what.value);
     this.items.unshift(
       {
         description: what.value,
