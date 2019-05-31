@@ -12,10 +12,14 @@ import { EntryComponent } from './components/todo-list/entry/entry.component';
 import { TodoDataService } from './components/todo-list/todo-data.service';
 import { CounterComponent } from './components/counter/counter.component';
 
+import { ShoppingModule } from './features/shopping/shopping.module';
+
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 
 import { reducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { CounterEffects } from './effects/counter.effects';
 
 @NgModule({
   declarations: [
@@ -32,7 +36,9 @@ import { reducers } from './reducers';
     BrowserModule,
     AppRoutingModule,
     StoreModule.forRoot(reducers),
-    StoreDevtoolsModule.instrument()
+    StoreDevtoolsModule.instrument(),
+    EffectsModule.forRoot([CounterEffects]),
+    ShoppingModule
   ],
   providers: [
     TodoDataService
