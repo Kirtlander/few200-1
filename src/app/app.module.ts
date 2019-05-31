@@ -10,6 +10,12 @@ import { NavComponent } from './components/nav/nav.component';
 import { ListComponent } from './components/todo-list/list/list.component';
 import { EntryComponent } from './components/todo-list/entry/entry.component';
 import { TodoDataService } from './components/todo-list/todo-data.service';
+import { CounterComponent } from './components/counter/counter.component';
+
+import { StoreModule } from '@ngrx/store';
+import { StoreDevtoolsModule } from '@ngrx/store-devtools';
+
+import { reducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -19,11 +25,14 @@ import { TodoDataService } from './components/todo-list/todo-data.service';
     TipCalculatorComponent,
     NavComponent,
     ListComponent,
-    EntryComponent
+    EntryComponent,
+    CounterComponent
   ],
   imports: [
     BrowserModule,
-    AppRoutingModule
+    AppRoutingModule,
+    StoreModule.forRoot(reducers),
+    StoreDevtoolsModule.instrument()
   ],
   providers: [
     TodoDataService
