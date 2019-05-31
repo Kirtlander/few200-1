@@ -1,3 +1,11 @@
-<p>
-  shopping works!
-</p>
+<div class="row">
+  <header class="page-header">
+    <h4>Shoppping!!</h4>
+  </header>
+</div>
+<div class="row">
+  <app-entry></app-entry>
+</div>
+<div class="row">
+  <app-list [list]="stuff$ | async"></app-list>
+</div>
