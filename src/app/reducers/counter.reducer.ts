@@ -1,30 +1,41 @@
 import { Action } from '@ngrx/store';
+import * as counterActions from '../actions/counter.actions';
 
 export interface State {
   current: number;
+  by: number;
 }
 
 const initialState: State = {
-  current: 0
+  current: 0,
+  by: 1
 };
 
-export function reducer(state: State = initialState, action: Action): State {
+export function reducer(state: State = initialState, action: counterActions.All): State {
   switch (action.type) {
 
-    case 'increment': {
+    case counterActions.SET_COUNT_BY: {
       return {
-        current: state.current + 1
+        current: state.current,
+        by: action.by
       };
     }
 
-    case 'decrement': {
-      const newCurrent = state.current - 1;
+    case counterActions.INCREMENT: {
       return {
-        current: newCurrent < 0 ? 0 : newCurrent
+        current: state.current + state.by,
+        by: state.by
       };
     }
 
-    case 'reset': {
+    case counterActions.DECREMENT: {
+      return {
+        current: state.current - state.by,
+        by: state.by
+      };
+    }
+
+    case counterActions.RESET: {
       return initialState;
     }
 
