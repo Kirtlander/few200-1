@@ -13,6 +13,7 @@ import { TodoDataService } from './components/todo-list/todo-data.service';
 import { CounterComponent } from './components/counter/counter.component';
 
 import { ShoppingModule } from './features/shopping/shopping.module';
+import { BooksModule } from './features/books/books.module';
 
 import { StoreModule } from '@ngrx/store';
 import { StoreDevtoolsModule } from '@ngrx/store-devtools';
@@ -38,7 +39,8 @@ import { CounterEffects } from './effects/counter.effects';
     StoreModule.forRoot(reducers),
     StoreDevtoolsModule.instrument(),
     EffectsModule.forRoot([CounterEffects]),
-    ShoppingModule
+    ShoppingModule,
+    BooksModule
   ],
   providers: [
     TodoDataService
