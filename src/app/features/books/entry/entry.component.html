@@ -1,3 +1,26 @@
-<p>
-  entry works!
-</p>
+<div class="form-group">
+  <section name="fields">
+    <label for="title">Title:</label>
+    <input class="form-control"
+           name="title"
+           #title>
+    <label for="author">Author:</label>
+    <input class="form-control"
+           name="author"
+           #author>
+    <label for="format">Format:</label>
+    <select class="form-control"
+            name="format"
+            #format>
+      <option value="Hardcover">Hardcover</option>
+      <option value="Paperback">Paperback</option>
+      <option value="E-Book">E-Book</option>
+    </select>
+  </section>
+  <section name="submit">
+    <input type="button"
+           class="btn btn-success"
+           value="Add"
+           (click)="add({ title: title, author: author, format: format})">
+  </section>
+</div>

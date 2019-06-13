@@ -12,4 +12,10 @@ export class EntryComponent implements OnInit {
   ngOnInit() {
   }
 
+  add(what: HTMLInputElement) {
+    // this.store.dispatch(new ItemAdded(what.value));
+    // what.value = '';
+    // what.focus();
+  }
+
 }
