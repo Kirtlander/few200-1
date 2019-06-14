@@ -1,3 +1,14 @@
-<p>
-  list works!
-</p>
+<ul class="list-unstyled">
+  <li class="alert alert-info"
+      *ngFor="let item of list">
+    <span>
+      <input type="button"
+             (click)="remove(item)"
+             class="btn btn-danger btn-sm"
+             value="X">
+    </span>
+    <span class="title">{{ item.title }}</span>
+    <span class="author"> &mdash; {{ item.author }}</span>
+    <span class="format"> ({{ item.format }})</span>
+  </li>
+</ul>

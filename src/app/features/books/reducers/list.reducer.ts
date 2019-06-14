@@ -14,7 +14,7 @@ export interface State extends EntityState<BookEntity> { }
 export const adapter = createEntityAdapter<BookEntity>();
 
 const initialState: State = {
-  ids: ['1', '2'],
+  ids: ['1', '2', '3', '4'],
   entities: {
     1: {
       id: '1',
@@ -28,14 +28,14 @@ const initialState: State = {
       author: 'David & Tom Gardner',
       format: 'E-Book'
     },
-    32: {
-      id: '2',
+    3: {
+      id: '3',
       title: 'Moby Dick',
       author: 'Herman',
       format: 'Hardcover'
     },
     4: {
-      id: '3',
+      id: '4',
       title: 'How To Win Friends and Influence People',
       author: 'Dale Carnegie',
       format: 'Paperback'

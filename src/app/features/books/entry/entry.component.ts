@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import { BookEntity } from '../reducers/list.reducer';
+import { Store } from '@ngrx/store';
+import { State } from '../reducers';
+import { ItemAdded } from '../actions/list.actions';
 
 @Component({
   selector: 'app-entry',
@@ -7,15 +11,21 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EntryComponent implements OnInit {
 
-  constructor() { }
+  constructor(private store: Store<State>) { }
 
   ngOnInit() {
   }
 
-  add(what: HTMLInputElement) {
-    // this.store.dispatch(new ItemAdded(what.value));
-    // what.value = '';
-    // what.focus();
+  add(title: HTMLInputElement, author: HTMLInputElement, format: HTMLSelectElement) {
+    this.store.dispatch(new ItemAdded({
+      title: title.value,
+      author: author.value,
+      format: format.value
+    } as any));
+    title.value = '';
+    author.value = '';
+    format.value = 'Hardcover';
+    title.focus();
   }
 
 }
