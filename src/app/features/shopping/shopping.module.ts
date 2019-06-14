@@ -4,8 +4,7 @@ import { ShoppingComponent } from './shopping.component';
 import { EntryComponent } from './components/entry/entry.component';
 import { ListComponent } from './components/list/list.component';
 import { StoreModule } from '@ngrx/store';
-import { FEATURE_NAME } from './reducers';
-import { reducers } from './reducers';
+import { FEATURE_NAME, reducers } from './reducers';
 
 @NgModule({
   declarations: [

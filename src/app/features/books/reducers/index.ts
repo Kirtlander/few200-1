@@ -1,5 +1,5 @@
-import * as fromList from './list.reducer';
 import { createFeatureSelector, createSelector } from '@ngrx/store';
+import * as fromList from './list.reducer';
 import { Book } from '../models';
 
 export const FEATURE_NAME = 'booksFeature';
@@ -21,9 +21,9 @@ export const selectFeature = createFeatureSelector<State>(FEATURE_NAME);
 export const selectListBranch = createSelector(selectFeature, f => f.list);
 
 // export const { selectAll: selectAllShippingItems } = fromList.adapter.getSelectors(selectListBranch);
-export const selectAllShoppingItems = fromList.adapter.getSelectors(selectListBranch).selectAll;
+export const selectAllBooks = fromList.adapter.getSelectors(selectListBranch).selectAll;
 
 // 3. The selectors for the actual components
 
 export const selectBookItems =
-  createSelector(selectAllShoppingItems, items => items as Book[]);
+  createSelector(selectAllBooks, items => items as Book[]);

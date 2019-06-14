@@ -1,11 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { BooksComponent } from './books.component';
-import { ListComponent } from './list/list.component';
-import { EntryComponent } from './entry/entry.component';
-import { FEATURE_NAME } from './reducers';
+import { ListComponent } from './components/list/list.component';
+import { EntryComponent } from './components/entry/entry.component';
+import { FEATURE_NAME, reducers } from './reducers';
 import { StoreModule } from '@ngrx/store';
-import { reducers } from './reducers';
 
 @NgModule({
   declarations: [BooksComponent, ListComponent, EntryComponent],

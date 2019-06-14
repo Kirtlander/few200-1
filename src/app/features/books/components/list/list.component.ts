@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, ChangeDetectionStrategy } from '@angular/core';
-import { Book } from '../models';
+import { Book } from '../../models';
 import { Store } from '@ngrx/store';
-import { State } from '../reducers';
-import { ItemRemoved } from '../actions/list.actions';
+import { State } from '../../reducers';
+import { ItemRemoved } from '../../actions/list.actions';
 
 @Component({
   selector: 'app-list',

@@ -1,8 +1,7 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import { BookEntity } from '../reducers/list.reducer';
 import { Store } from '@ngrx/store';
-import { State } from '../reducers';
-import { ItemAdded } from '../actions/list.actions';
+import { State } from '../../reducers';
+import { ItemAdded } from '../../actions/list.actions';
 
 @Component({
   selector: 'app-entry',
