@@ -31,7 +31,7 @@ const initialState: State = {
     3: {
       id: '3',
       title: 'Moby Dick',
-      author: 'Herman',
+      author: 'Herman Melville',
       format: 'Hardcover'
     },
     4: {
