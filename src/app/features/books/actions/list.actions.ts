@@ -3,13 +3,13 @@ import { BookEntity } from '../reducers/list.reducer';
 
 let currentFakeId = 1;
 
-export const REMOVE_ITEM = '[shopping] removed item';
+export const REMOVE_ITEM = '[books] removed item';
 export class ItemRemoved implements Action {
   readonly type = REMOVE_ITEM;
   constructor(public payload: BookEntity) { }
 }
 
-export const ADD_ITEM = '[shopping] add item';
+export const ADD_ITEM = '[books] add item';
 export class ItemAdded implements Action {
   readonly type = ADD_ITEM;
   payload: BookEntity;
